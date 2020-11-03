@@ -1,6 +1,6 @@
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components/macro';
 import GlobalStyle from './GlobalStyle';
-import logo from './logo.svg';
 
 const logoSpin = keyframes`
   from {
@@ -37,32 +37,42 @@ const Wrapper = styled.div`
   }
 `;
 
-const Link = styled.a`
-  color: #61dafb;
-`;
+const UL = styled.ul`
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
 
+  & > * {
+    margin: 1rem;
+  }
+`;
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyle />
       <Wrapper>
-        <header>
-          <img src={logo} alt="logo" />
-          <p>
-            Edit
-            <code>src/App.js</code>
-            and save to reload.
-          </p>
-          <Link
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </Link>
-        </header>
+        <UL>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/programm">Programm</Link>
+          </li>
+          <li>
+            <Link to="/calendar">Calendar</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+        </UL>
+        <Switch>
+          <Route path="/programm">Programm</Route>
+          <Route path="/calendar">Calendar</Route>
+          <Route path="/about">About</Route>
+          <Route path="/">Home</Route>
+        </Switch>
       </Wrapper>
-    </>
+    </BrowserRouter>
   );
 }
 
