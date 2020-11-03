@@ -1,5 +1,8 @@
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components/macro';
+import Button from './components/Button';
+import Wish from './components/Wish';
+import Wishlist from './components/Wishlist';
 import GlobalStyle from './GlobalStyle';
 
 const logoSpin = keyframes`
@@ -41,11 +44,12 @@ const UL = styled.ul`
   list-style-type: none;
   display: flex;
   justify-content: center;
-
+  padding: 0;
   & > * {
-    margin: 1rem;
+    margin: 0 1rem;
   }
 `;
+
 function App() {
   return (
     <BrowserRouter>
@@ -69,7 +73,12 @@ function App() {
           <Route path="/programm">Programm</Route>
           <Route path="/calendar">Calendar</Route>
           <Route path="/about">About</Route>
-          <Route path="/">Home</Route>
+          <Route path="/">
+            <Wishlist>
+              <Wish />
+              <Button absolute>+</Button>
+            </Wishlist>
+          </Route>
         </Switch>
       </Wrapper>
     </BrowserRouter>

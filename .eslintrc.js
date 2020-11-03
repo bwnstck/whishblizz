@@ -23,6 +23,8 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': 'off',
     'react/jsx-props-no-spreading': 'off',
-    'jsx-a11y/label-has-associated-control': 'off',
+    'no-unused-vars': 'warn',
+    'import/order': 'warn',
+    'import/newline-after-import': 'warn',
   },
 };
