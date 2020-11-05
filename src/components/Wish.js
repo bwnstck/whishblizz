@@ -16,5 +16,5 @@ const WishTemplate = styled.div`
 `;
 
 export default function Wish() {
-  return <WishTemplate>Iam a Wish</WishTemplate>;
+  return <WishTemplate>Iamadfadf a Wish</WishTemplate>;
 }
