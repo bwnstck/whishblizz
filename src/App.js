@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components/macro';
 import Wishlist from './components/Wishlist';
 import Home from './pages/Home';
