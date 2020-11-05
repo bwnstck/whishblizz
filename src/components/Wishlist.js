@@ -20,8 +20,11 @@ export default function Wishlist() {
     setListItem(entry);
   }, []);
 
-  const handleDelete = async (event) => {
-    event.stopPropagation();
+  if (!listItem) {
+    return <div>Loading...</div>;
+  }
+
+  const handleDelete = async () => {
     await deleteListByID(id);
     history.push('/');
   };
@@ -31,7 +34,7 @@ export default function Wishlist() {
       <p> {listItem?.title}s Wunschliste </p>
       {listItem?.items.map((item) => {
         return (
-          <div className="wish">
+          <div key={item} className="wish">
             {item}
             <Button onClick={async () => handleDelete}>
               <span role="img" aria-label="deleteButton">
@@ -41,6 +44,7 @@ export default function Wishlist() {
           </div>
         );
       })}
+      <Button onClick={handleDelete}>Delete List</Button>
       <Link to="/">
         <Button>Back</Button>
       </Link>

@@ -1,3 +1,9 @@
 {
-  "lists": []
+  "lists": [
+    {
+      "id": 7,
+      "title": "Johannes",
+      "items": ["ein geschenk", "Socken"]
+    }
+  ]
 }

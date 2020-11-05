@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import getLists, { deleteListByID } from '../api/helpers';
 import Button from '../components/Button';
@@ -24,16 +24,19 @@ const NavLink = styled(Link)`
 `;
 export default function Home() {
   const [lists, setLists] = useState(null);
-  const history = useHistory();
 
-  useEffect(async () => {
+  async function refreshLists() {
     const newLists = await getLists();
     setLists(newLists);
+  }
+
+  useEffect(async () => {
+    await refreshLists();
   }, []);
 
   const handleDelete = async (id) => {
     await deleteListByID(id);
-    history.push('/');
+    await refreshLists();
   };
 
   return (
